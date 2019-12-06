@@ -48,15 +48,20 @@ exports.user_create = function(req, res, next) {
     const department = req.body.department;
     const user_id = req.body.user_id;
     const password = req.body.password;
+    const confirm_password = req.body.confirm_password;
     const address = req.body.address;
 
-    const queryString = "INSERT INTO users (full_name, position, department, user_id, password, address) VALUES (?, ?, ?, ?, ?, ?)";
-    getConnection().query(queryString, [full_name, position, department, user_id, password, address], (err, result, fields) => {
-        if (err) {
-            console.log("Failed to insert new users: " + err);
-            res.sendStatus(500);
-            return
-        }
-    });
-    res.redirect('/users');
+    if (password === confirm_password) {
+        const queryString = "INSERT INTO users (full_name, position, department, user_id, password, address) VALUES (?, ?, ?, ?, ?, ?)";
+        getConnection().query(queryString, [full_name, position, department, user_id, password, address], (err, result, fields) => {
+            if (err) {
+                console.log("Failed to insert new users: " + err);
+                res.sendStatus(500);
+                return
+            }
+        });
+        res.redirect('/users');
+    } else {
+        res.redirect('/create?message=Your Password must be the same with Confirm Password!');
+    }
 };
