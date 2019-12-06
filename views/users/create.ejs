@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create New User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create New User</h1>
+        <hr>
+        <div>
+            <form action="/user-create" method="POST">
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" id="name-input" name="full_name" class="form-control" maxlength="35" placeholder="Your Full Name" required="required">
+                </div>
+                <div class="form-group">
+                    <label>Position:</label>
+                    <input type="text" name="position" class="form-control" maxlength="20" placeholder="Your Position">
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Department:</label>
+                    <select class="form-control" id="sel1">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Sales">Sales</option>
+                        <option value="HR">HR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>User Id:</label>
+                    <input type="text" name="user_id" class="form-control" value=<%= user_id %> placeholder="Your User Id" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="number" name="password" class="form-control" placeholder="Your Password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="number" name="password" class="form-control" placeholder="Confirm Your Password">
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <textarea name="address" class="form-control" rows="4" maxlength="200" placeholder="Your Address"></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
