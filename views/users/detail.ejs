@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+<body>
+  <%- include("../partials/navigation") %>
+  <div class="container-users">
+    <h1>Detail Employee</h1>
+    <hr>
+    <% data.forEach(function(item){ %>
+        <p>Fullname: <%= item.full_name %></p>
+        <p>Position: <%= item.position %></p>
+        <p>Department: <%= item.department %></p>
+        <p>User Id: <%= item.user_id %></p>
+        <p>Address: <%= item.address %></p>
+    <% }) %> 
+  </div>
+  <%- include("../partials/footer") %>
+</body>
+</html>

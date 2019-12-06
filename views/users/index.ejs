@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+<body>
+  <%- include("../partials/navigation") %>
+  <div class="container-users">
+    <h1>All Employees</h1>
+    <hr>
+    <ol>
+        <% data.forEach(function(item){ %>
+            <li>
+                Fullname: <%= item.full_name %><br>
+                Position: <%= item.position %><br>
+                Department: <%= item.department %><br>
+                User Id: <%= item.user_id %><br>
+                Address: <%= item.address %><br>
+            </li>
+            <div class="options">
+                <a href="/users/<%= item.id %>">Delete</a>
+                <a href="#">Update</a>
+                <a href="#">Detail</a>
+            </div>
+            <br>
+        <% }) %> 
+    </ol>
+  </div>
+  <%- include("../partials/footer") %>
+</body>
+</html>

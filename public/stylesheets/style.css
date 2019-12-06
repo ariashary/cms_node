@@ -17,10 +17,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 .navigation {
   margin-bottom: 2rem;
 }
@@ -36,6 +32,23 @@ a {
 .container .index-button {
   text-align: center;
   margin: 12rem;
+}
+
+.container-users {
+  margin-left: 10%;
+}
+
+.container-users li {
+  margin-bottom: 0.5rem;
+}
+
+.container-users p {
+  font-size: 1.3rem;
+  margin-top: -5px;
+}
+
+.options a {
+  margin-right: 0.7rem;
 }
 
 #sticky-footer {

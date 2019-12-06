@@ -14,7 +14,6 @@ function getConnection() {
 
 exports.index = function(req, res, next) {
     const connection = getConnection();
-
     const queryString = "SELECT * FROM users";
     connection.query(queryString, (err, rows, fields) => {
         if (err) {
@@ -22,14 +21,27 @@ exports.index = function(req, res, next) {
             res.sendStatus(500);
             res.end();
         }
-        res.json(rows);
+        res.render('users/index', { data: rows });
     });
 };
 
-exports.byId = function(req, res, next) {
+exports.delete = function(req, res, next) {
+    let userId = req.params;
     const connection = getConnection();
+    const queryString = "DELETE FROM users WHERE id=" + params.id;
+    connection.query(queryString, (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to query for users: " + err);
+            res.sendStatus(500);
+            res.end();
+        }
+        res.render('users/index', { data: rows });
+    });
+};
 
+exports.detail = function(req, res, next) {
     const userId = req.params.id;
+    const connection = getConnection();
     const queryString = "SELECT * FROM users WHERE id = ?";
     connection.query(queryString, [userId], (err, rows, fields) => {
         if (err) {
@@ -37,13 +49,13 @@ exports.byId = function(req, res, next) {
             res.sendStatus(500);
             res.end();
         }
-        res.json(rows);
+        res.render('users/detail', { data: rows });
     });
 };
 
 exports.user_create = function(req, res, next) {
     console.log(req.body.user_id);
-    const full_name = req.body.full_name;
+    const full_name = req.body.full_name.toUpperCase();
     const position = req.body.position;
     const department = req.body.department;
     const user_id = req.body.user_id;
