@@ -81,14 +81,14 @@ exports.user_update = function(req, res, next) {
     const address = req.body.address;
 
     const queryString = "INSERT INTO users (full_name, position, department, user_id, password, address) VALUES (?, ?, ?, ?, ?, ?) WHERE id = ?";
-        getConnection().query(queryString, [full_name, position, department, user_id, password, address], [userId], (err, result, fields) => {
+        getConnection().query(queryString, [full_name, position, department, user_id, password, address, userId], (err, result, fields) => {
             if (err) {
                 console.log("Failed to insert new users: " + err);
                 res.sendStatus(500);
                 return
             }
     });
-    // res.redirect('/users?message=Successfully updated user!');
+    res.redirect('/users?message=Successfully updated user!');
 };
 
 exports.user_create = function(req, res, next) {
