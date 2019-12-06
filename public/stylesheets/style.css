@@ -1,8 +1,19 @@
-html, body {
+html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,12 +26,24 @@ a {
 }
 
 .container {
-  width: 70%; 
+  width: 60%;
+}
+
+.container .index {
+  text-align: center;
+}
+
+.container .index-button {
+  text-align: center;
+  margin: 12rem;
 }
 
 #sticky-footer {
-  margin-top: 2rem;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }
 
 #name-input:valid {
