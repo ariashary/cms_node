@@ -1,24 +1,29 @@
 <%- include("../partials/header") %>
 <body>
   <%- include("../partials/navigation") %>
+  <% if (message) { %>
+    <div class="alert alert-primary" role="alert">
+        <%= message %>
+    </div>
+  <% }; %>
   <div class="container-users">
     <h1>All Employees</h1>
     <hr>
     <ol>
         <% data.forEach(function(item){ %>
             <li>
-                Fullname: <%= item.full_name %><br>
-                Position: <%= item.position %><br>
-                Department: <%= item.department %><br>
-                User Id: <%= item.user_id %><br>
-                Address: <%= item.address %><br>
+                <p>Fullname: <%= item.full_name %></p>
+                <p>Position: <%= item.position %></p>
+                <p>Department: <%= item.department %></p>
+                <p>User Id: <%= item.user_id %></p>
+                <p>Address: <%= item.address %></p>
             </li>
             <div class="options">
-                <a href="/users/<%= item.id %>">Delete</a>
+                <a href="/users/delete/<%= item.id %>">Delete</a>
                 <a href="#">Update</a>
-                <a href="#">Detail</a>
+                <a href="/users/<%= item.id %>">Detail</a>
             </div>
-            <br>
+            <br><br>
         <% }) %> 
     </ol>
   </div>

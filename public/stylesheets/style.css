@@ -35,14 +35,24 @@ body {
 }
 
 .container-users {
-  margin-left: 10%;
+  width: 80%;
+  margin: auto;
 }
 
 .container-users li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.container-users p {
+.container-users li p {
+  margin-top: -4px;
+}
+
+.container-detail {
+  width: 80%;
+  margin: auto;
+}
+
+.container-detail p {
   font-size: 1.3rem;
   margin-top: -5px;
 }
