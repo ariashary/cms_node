@@ -1,0 +1,45 @@
+<%- include("../partials/header") %>
+<body>
+    <%- include("../partials/navigation") %>
+    <div class="container">
+        <h1>Update User</h1>
+        <hr>
+        <div>
+            <form action="/users/user-update" method="POST">
+                <div class="form-group">
+                    <label>Full Name:</label>
+                    <input type="text" id="name-input" name="full_name" class="form-control" maxlength="35" value="<%= data[0].full_name %>" placeholder="Your Full Name" required="required">
+                </div>
+                <div class="form-group">
+                    <label>Position:</label>
+                    <input type="text" name="position" class="form-control" maxlength="20" value="<%= data[0].position %>" placeholder="Your Position" required="required">
+                </div>
+                <div class="form-group">
+                    <label>Department:</label>
+                    <select name="department" class="form-control" value="<%= data[0].department %>" required="required">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Sales">Sales</option>
+                        <option value="HR">HR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>User Id:</label>
+                    <input type="text" name="user_id" class="form-control" maxlength="8" value="<%= data[0].user_id %>" placeholder="Your User Id">
+                </div>
+                <div class="form-group">
+                    <label>Password (Use combination number & text, max. 8 characters):</label>
+                    <input type="password" name="password" class="form-control" maxlength="8" value="<%= data[0].password %>" placeholder="Your Password (Ex: Emb54a)" required="required">
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <textarea name="address" class="form-control" rows="4" maxlength="200" placeholder="Your Address" required="required"><%= data[0].address %></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-dark btn-sm">Submit</button>
+            </form>
+        </div>
+    </div>
+    <%- include("../partials/footer") %>
+</body>
+</html>
